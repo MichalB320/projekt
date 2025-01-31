@@ -1,6 +1,6 @@
 const oracledb = require('oracledb');
 try {
-  oracledb.initOracleClient({ libDir: 'C:\\oracle\\instantclient_23_5' });
+  oracledb.initOracleClient({ libDir: 'C:\\instantclient_23_6' });
 } catch (err) {
   console.error('Whoops!');
   console.error(err);

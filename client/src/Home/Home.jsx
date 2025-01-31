@@ -15,6 +15,7 @@ import orderIcon from "../images/order.png";
 import GetUserData from "../Auth/GetUserData";
 import comboboxIcon from "../images/database.png";
 import meetingIcon from "../images/meeting.png";
+import telephoneIcon from "../images/telephone.png";
 import "../styles/homepage.css";
 
 function Home() {
@@ -149,6 +150,13 @@ function Home() {
         icon={operationIcon}
         key="6"
     ></HomeCard>,
+    <HomeCard
+        title="Telefonáty"
+        isCalendar={false}
+        path="/calls"
+        icon={telephoneIcon}
+        key="7"
+    ></HomeCard>
   ];
 
   const patientCards = [

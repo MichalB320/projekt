@@ -33,6 +33,7 @@ import User from './Views/User';
 import HospitalRoom from './HospitalRoom/HospitalRoom';
 import TabMeetings from './Views/Tables/TabMeetings';
 import socketService from './service/socketService';
+import Calls from './Views/Calls';
 function App() {
   const [visibleLeft, setVisibleLeft] = useState(false);
   const [patientId, setPatientId] = useState(null);
@@ -148,6 +149,13 @@ function App() {
       label='Operácie'
       icon='operation-icon'
     />,
+    <SidebarButton
+      key='16'
+      visibleLeft={visibleLeft}
+      path='/calls'
+      label='Telefonáty'
+      icon='telephone-icon'
+    />
   ];
 
   const sidebarButtonsDoctor = [
@@ -342,6 +350,7 @@ function App() {
         <Route path='/patients' element={<TabPatients></TabPatients>}></Route>
         <Route path='/sklad' element={<Storage />}></Route>
         <Route path='/adminPanel' element={<AdminPanel />}></Route>
+        <Route path='/calls' element={<Calls />}></Route>
       </>
     );
   };
