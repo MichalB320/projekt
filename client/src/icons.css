@@ -197,3 +197,21 @@
   height: 44px;
   width: 44px;
 }
+
+.dispatcher-icon {
+  content: url("./images/dispatchers-black.png");
+  height: 44px;
+  width: 44px;
+}
+
+.incident-icon {
+  content: url("./images/location-black.png");
+  height: 44px;
+  width: 44px;
+}
+
+.barchart-icon {
+  content: url("./images/barChart-black.png");
+  height: 44px;
+  width: 44px;
+}

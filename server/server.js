@@ -29,6 +29,9 @@ const chatRoute = require('./routes/chatRoute');
 const ordersRoute = require('./routes/ordersRoute');
 const warehouseTransfersRoute = require('./routes/warehouseTransfersRoute');
 const hospitalizaciaRoute = require('./routes/hospitalizacieRoute');
+const callsRoute = require('./routes/callRoute');
+const dispatchersRoute = require('./routes/DispatcherRoute');
+const incidentsRoute = require('./routes/incidentRoute');
 
 const server = http.createServer(app); // Create an HTTP server using your Express app
 const io = socketIo(server); // Initialize Socket.io with the HTTP server
@@ -63,6 +66,9 @@ app.use('/presuny', warehouseTransfersRoute);
 app.use('/hospitalizacia', hospitalizaciaRoute);
 app.use('/nemocnica', nemocnicaRoute);
 app.use('/miestnost', miestnostRoute);
+app.use('/calls', callsRoute);
+app.use('/dispatchers', dispatchersRoute);
+app.use('/incidents', incidentsRoute);
 
 io.on('connection', (socket) => {
   socket.emit('yourSocketId', socket.id);

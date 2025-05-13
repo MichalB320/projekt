@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import TableMedicalRecords from './TableMedicalRecords';
-import TableCallRecords from './TabCallRecords';
+import TableIncidentRecords from './TabIncidentRecords';
 import GetUserData from '../../Auth/GetUserData';
 import { useNavigate } from 'react-router';
 import { Toast } from 'primereact/toast';
@@ -8,7 +8,7 @@ import { Toast } from 'primereact/toast';
 export default function TabHospitalizations() {
   const toast = useRef(null);
   //const navigate = useNavigate();
-  const [hovory, setHovory] = useState([]);
+  const [incidenty, setIncidenty] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     fetchData();
@@ -19,7 +19,7 @@ export default function TabHospitalizations() {
     const token = localStorage.getItem('hospit-user');
     //const userDataHelper = GetUserData(token);
     const headers = { authorization: 'Bearer ' + token };
-    fetch(`/api/calls/allCalls`, {
+    fetch(`/api/incidents/allIncidents`, {
       headers,
     })
        .then((response) => { 
@@ -38,34 +38,37 @@ export default function TabHospitalizations() {
         }
       }) 
       .then((data) => {
-        setHovory(data);
+        setIncidenty(data);
         setLoading(false);
       });
   };
 
   const data = {
-    tableName: 'Hovory',
-    cellData: hovory,
+    tableName: 'Incidenty',
+    cellData: incidenty,
     fetchData: () => fetchData(),
     titles: [
-      { field: 'ID_HOVORU', header: 'ID_HOVORU' },
-      { field: 'ZACIATOK_HOVORU', header: 'začiatok hovoru' },
-      { field: 'CAS_PRIJATIA_HOVORU', header: 'prijatý hovor' },
-      { field: 'CAS_UKONCENIA_HOVORU', header: 'ukončený hovoru' },
-      { field: 'PRIORITA', header: 'priorita' },
-      { field: 'UKONCENIE_HOVORU', header: 'ukončenie hovoru' },
-      { field: 'POLOHA_HLASENIA', header: 'poloha hovoru' },
+      { field: 'ID_INCIDENTU', header: 'ID incidentu' },
+      { field: 'ID_HOVORU', header: 'ID hovoru' },
+      { field: 'TYP_INCIDENTU', header: 'typ incidentu' },
+      { field: 'POPIS_INCIDENTU', header: 'popis' },
+      { field: 'POLOHA_UDALOSTI', header: 'poloha' },
+      { field: 'ID_POCASIA', header: 'počasie' },
+      { field: 'ID_PODUJATIA', header: 'podujatie' },
+      { field: 'RIESENIE', header: 'riešenie' },
+      { field: 'ZDRAV_STAV_PACIENTA', header: 'stav pacienta' },
+      { field: 'CAS_VYRIESENIA_INCIDENTU', header: 'čas vyriešenia incidentu' },
     ],
     allowFilters: true,
     dialog: true,
-    eventType: 'Hovory',
+    eventType: 'Incidenty',
     tableLoading: loading,
   };
 
   return (
     <div>
       <Toast ref={toast} position='top-center' />
-      {data && <TableCallRecords {...data} />}
+      {data && <TableIncidentRecords {...data} />}
     </div>
   );
 }

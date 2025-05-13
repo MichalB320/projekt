@@ -34,6 +34,10 @@ import HospitalRoom from './HospitalRoom/HospitalRoom';
 import TabMeetings from './Views/Tables/TabMeetings';
 import socketService from './service/socketService';
 import Calls from './Views/Calls';
+import Incidents from './Views/Incidents';
+import Dispatchers from './Views/Dispatchers';
+import DataCharts from './Views/DataCharts';
+
 function App() {
   const [visibleLeft, setVisibleLeft] = useState(false);
   const [patientId, setPatientId] = useState(null);
@@ -155,7 +159,28 @@ function App() {
       path='/calls'
       label='Telefonáty'
       icon='telephone-icon'
-    />
+    />,
+    <SidebarButton
+      key='17'
+      visibleLeft={visibleLeft}
+      path='/dispatchers'
+      label="Dispečery"
+      icon='dispatcher-icon'
+    />,
+    <SidebarButton
+      key='18'
+      visibleLeft={visibleLeft}
+      path='/incidents'
+      label="Incidenty"
+      icon='incident-icon'
+    />,
+    <SidebarButton
+      key='19'
+      visibleLeft={visibleLeft}
+      path='/dataCharts'
+      label="Vizualizácia dát"
+      icon='barchart-icon'
+    />,
   ];
 
   const sidebarButtonsDoctor = [
@@ -351,6 +376,9 @@ function App() {
         <Route path='/sklad' element={<Storage />}></Route>
         <Route path='/adminPanel' element={<AdminPanel />}></Route>
         <Route path='/calls' element={<Calls />}></Route>
+        <Route path='/dispatchers' element={<Dispatchers />}></Route>
+        <Route path='/incidents' element={<Incidents />}></Route>
+        <Route path='/dataCharts' element={<DataCharts />}></Route>
       </>
     );
   };

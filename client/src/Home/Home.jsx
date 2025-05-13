@@ -16,6 +16,9 @@ import GetUserData from "../Auth/GetUserData";
 import comboboxIcon from "../images/database.png";
 import meetingIcon from "../images/meeting.png";
 import telephoneIcon from "../images/telephone.png";
+import dispatchersIcon from "../images/dispatchers-black.png"
+import incidentIcon from "../images/location.png"
+import barChartIcon from "../images/barChart.png"
 import "../styles/homepage.css";
 
 function Home() {
@@ -156,7 +159,25 @@ function Home() {
         path="/calls"
         icon={telephoneIcon}
         key="7"
-    ></HomeCard>
+    ></HomeCard>,
+    <HomeCard
+      title="Dispečery"
+      isCalendar={false}
+      path="/dispatchers"
+      icon={dispatchersIcon}
+    ></HomeCard>,
+    <HomeCard
+      title="Incidenty"
+      isCalendar={false}
+      path="/incidents"
+      icon={incidentIcon}
+    ></HomeCard>,
+    <HomeCard
+      title="Vizualizácia dát"
+      isCalendar={false}
+      path="/dataCharts"
+      icon={barChartIcon}
+    ></HomeCard>,
   ];
 
   const patientCards = [
